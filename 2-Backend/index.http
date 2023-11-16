@@ -1,3 +1,6 @@
+
+//PRODUCTOS
+
 POST http://localhost:3000/api/productos
 Content-Type: application/json
 
@@ -15,3 +18,20 @@ GET http://localhost:3000/api/productos
 ###
 
 DELETE http://localhost:3000/api/productos/6554a1437a064c358bc53196
+
+###
+
+//USUARIOS Y SUS TIPOS
+
+POST http://localhost:3000/api/usuarios
+Content-Type: application/json
+
+{
+    "mail": "nico@hotmail.com",
+    "password": "|12345678",
+    "rol": "costilla"
+}
+
+###
+
+GET http://localhost:3000/api/usuarios
