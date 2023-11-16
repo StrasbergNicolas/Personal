@@ -1,0 +1,30 @@
+<form>
+    <fieldset>
+      <div class="form-group">
+        <label for="exampleInputEmail1" class="form-label mt-4">Dirección de mail</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresar el mail">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1" class="form-label mt-4">Contraseña</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña" autocomplete="off">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </fieldset>
+  </form>
+
+  <!-- Mostrar usuarios "temporal", para ver si funciona -->
+  <table class="table table-hover"> 
+    <tr >
+      <th scope="col">Mail</th>
+      <th scope="col">Contraseña</th>
+      <th scope="col">Rol</th>
+    </tr>
+    <tr *ngFor="let data of listUsuarios" class="table-active">
+      <th scope="row"> {{data.mail}} </th>
+      <td>{{data.password}}</td> 
+      <td>{{data.rol}}</td> 
+      <button type="button" class="btn btn-outline-light btn-sm">Editar</button>
+      <button type="button" class="btn btn-outline-light btn-sm">Borrar</button>
+    </tr>
+  </table>
+  
