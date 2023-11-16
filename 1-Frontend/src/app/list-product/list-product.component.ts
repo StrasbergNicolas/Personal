@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from '../models/producto';
 import { ProductoService } from '../services/producto.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-product',
@@ -15,10 +15,17 @@ export class ListProductComponent implements OnInit {
 
   listProducts: Producto[] = []; 
 
-  constructor(private _productoService:ProductoService){} //guion bajo es privado  
+  constructor(private _productoService:ProductoService,
+              private router: Router
+    ){} //guion bajo es privado  
   
   ngOnInit(): void {
     this.obtenerProductos(); //esto es para recargar constantemente la página y tener la data actualizada 
+  }
+
+
+  iraeditar(){
+    this.router.navigate(['/añadir'])
   }
 
   obtenerProductos(){
@@ -31,5 +38,13 @@ export class ListProductComponent implements OnInit {
       }
     })
   }
-
+  
+  eliminarProducto(_id:any){ 
+    this._productoService.deleteProducto(_id).subscribe({ 
+    next: data => { 
+      this.obtenerProductos(); 
+    }, error: err => { console.log(err); 
+    } 
+  }) 
+}
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../models/usuario';
 import { UsuarioServiceService } from '../services/usuario.service.service';
+import { NgFor } from '@angular/common';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -25,6 +27,11 @@ export class LoginComponent implements OnInit{
         console.log(err)
       }
     })
+  }
+
+  login(form: NgForm){
+    const email =form.value.email
+    const password = form.value.password
   }
 
 }

@@ -1,1 +1,12 @@
-<p>add-edit-product works!</p>
+
+<form [formGroup]="productoForm" (ngSubmit)="agregarProducto()">
+    <div>
+    <input type="text" class="form-control" formControlName="name" placeholder="Ingrese nombre">
+     <input style="margin-top: 15px;" type="text" class="form-control" formControlName="description" placeholder="Ingrese descripción">
+      <input style="margin-top: 15px;" type="text" class="form-control" formControlName="price" placeholder="Ingrese precio"> 
+      <input style="margin-top: 15px;" type="text" class="form-control" formControlName="stock" placeholder="Ingrese stock"> 
+      <button type="submit" class="btn btn-primary">Aceptar</button>
+      <button routerLink="/" type="button" class="btn btn-secondary">Volver</button>
+     </div>
+</form>
+

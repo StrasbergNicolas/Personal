@@ -12,4 +12,5 @@ export class UsuarioServiceService {
   getUsuarios() : Observable<any> {
     return this.http.get(this.url)
   }
+
 }

@@ -1,4 +1,6 @@
-<form>
+
+
+  <form>
     <fieldset>
       <div class="form-group">
         <label for="exampleInputEmail1" class="form-label mt-4">Dirección de mail</label>
@@ -12,19 +14,3 @@
     </fieldset>
   </form>
 
-  <!-- Mostrar usuarios "temporal", para ver si funciona -->
-  <table class="table table-hover"> 
-    <tr >
-      <th scope="col">Mail</th>
-      <th scope="col">Contraseña</th>
-      <th scope="col">Rol</th>
-    </tr>
-    <tr *ngFor="let data of listUsuarios" class="table-active">
-      <th scope="row"> {{data.mail}} </th>
-      <td>{{data.password}}</td> 
-      <td>{{data.rol}}</td> 
-      <button type="button" class="btn btn-outline-light btn-sm">Editar</button>
-      <button type="button" class="btn btn-outline-light btn-sm">Borrar</button>
-    </tr>
-  </table>
-  
