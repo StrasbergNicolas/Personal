@@ -2,7 +2,7 @@ POST http://localhost:3000/api/productos
 Content-Type: application/json
 
 {
-    "name": "LoL",
+    "name": "bicicleta",
     "description": "Galletitas ricas",
     "price": 550,
     "stock": 20
