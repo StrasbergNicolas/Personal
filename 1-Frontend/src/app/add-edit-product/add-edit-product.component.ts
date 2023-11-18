@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {Router} from '@angular/router'
+import {ActivatedRoute, Router} from '@angular/router'
 import { Producto } from '../models/producto';
 import { ProductoService } from '../services/producto.service';
 
@@ -9,12 +9,15 @@ import { ProductoService } from '../services/producto.service';
   templateUrl: './add-edit-product.component.html',
   styleUrls: ['./add-edit-product.component.css']
 })
-export class AddEditProductComponent {
+export class AddEditProductComponent implements OnInit{
   productoForm: FormGroup
+  id: string | null
 
   constructor(private fb: FormBuilder,
               private router: Router,
-              private _productoService: ProductoService){
+              private _productoService: ProductoService,
+              private actRouter: ActivatedRoute,
+             ){
   
     this.productoForm = this.fb.group({
       name:['', Validators.required],
@@ -22,6 +25,11 @@ export class AddEditProductComponent {
       price:['', Validators.required],
       stock:['',Validators.required]  
     })              
+    this.id = this.actRouter.snapshot.paramMap.get('id')
+ }
+
+ ngOnInit(): void {
+   this.esEditar()
  }
 
  agregarProducto(){
@@ -31,18 +39,42 @@ export class AddEditProductComponent {
     price: this.productoForm.get('price')?.value,
     stock: this.productoForm.get('stock')?.value
   }
-
-  console.log(PRODUCTO)
-  this._productoService.postProducto(PRODUCTO).subscribe({
-    next:data => {
-      console.log("producto registrado")
-      this.router.navigate(['/'])
-    }, error: err => {
-      console.log(err)
-      this.productoForm.reset()
+    if(this.id !== null){
+      this._productoService.editProducto(this.id,PRODUCTO).subscribe({
+        next:data =>{
+          this.router.navigate(['/'])
+        }
+      })
+    }else{
+      console.log(PRODUCTO)
+      this._productoService.postProducto(PRODUCTO).subscribe({
+        next:data => {
+          console.log("producto registrado")
+          this.router.navigate(['/'])
+        }, error: err => {
+          console.log(err)
+          this.productoForm.reset()
+        }
+      })
     }
-  })
 
  }
 
+  esEditar(){
+    if(this.id !== null){
+      this._productoService.getProducto(this.id).subscribe({
+        next: data => {
+          this.productoForm.setValue({
+            name: data.name,
+            description: data.description,
+            price: data.price,
+            stock: data.stock,
+          })
+        }, error: err => {
+          console.log(err)
+        }
+      })
+    }
+  }
+ 
 }

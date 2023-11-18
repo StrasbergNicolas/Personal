@@ -23,11 +23,6 @@ export class ListProductComponent implements OnInit {
     this.obtenerProductos(); //esto es para recargar constantemente la página y tener la data actualizada 
   }
 
-
-  iraeditar(){
-    this.router.navigate(['/añadir'])
-  }
-
   obtenerProductos(){
     this._productoService.getProductos().subscribe({
       next: data => {

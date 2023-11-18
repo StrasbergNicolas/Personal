@@ -10,6 +10,7 @@ import { RegistroComponent } from './registro/registro.component';
 const routes: Routes = [
   { path: 'lista',  canActivate:[authGuard],  component: ListProductComponent },
   { path: 'añadir', component: AddEditProductComponent  },
+  { path: 'añadir/:id', component: AddEditProductComponent},
   { path: 'login', component: LoginComponent },
   { path: "registrar", component: RegistroComponent},
   { path: "**", component: ListProductComponent}
