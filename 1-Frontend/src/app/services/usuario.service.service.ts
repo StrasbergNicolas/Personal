@@ -12,15 +12,15 @@ export class UsuarioServiceService {
 
   constructor(private http: HttpClient) { }
 
-  getUsuario(mail: string, password: string) : Observable<any>{
-    return this.http.post(this.url, mail + password)
+  postUsuario(credentials: { mail: string, password: string }) : Observable<any>{
+    return this.http.post(this.url, credentials)
   }
 
   getUsuarios() : Observable<any> {
     return this.http.get(this.url)
   }
 
-  getUsuariO(credentials: { mail: string, password: string }): Observable<any> {
+  getUsuario(credentials: { mail: string, password: string }): Observable<any> {
     return this.http.post(this.urllogin, credentials);
   }
 }

@@ -4,15 +4,15 @@ import { ListProductComponent } from './list-product/list-product.component';
 import { AddEditProductComponent } from './add-edit-product/add-edit-product.component';
 import { LoginComponent } from './login/login.component';
 import { NoEncontradoComponent } from './no-encontrado/no-encontrado.component';
+import { RegistrarseComponent } from './registrarse/registrarse.component';
 //import { authGuard } from './guards/auth.guard';
-import { RegistroComponent } from './registro/registro.component';
 
 const routes: Routes = [
   { path: 'lista',  component: ListProductComponent },
   { path: 'añadir', component: AddEditProductComponent  },
   { path: 'añadir/:id', component: AddEditProductComponent},
   { path: 'login', component: LoginComponent },
-  { path: "registrar", component: RegistroComponent},
+  { path: "registrar", component: RegistrarseComponent},
   { path: "**", component: ListProductComponent}
 ];
 

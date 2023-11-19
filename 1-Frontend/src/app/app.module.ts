@@ -8,10 +8,10 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { NoEncontradoComponent } from './no-encontrado/no-encontrado.component';
-import { RegistroComponent } from './registro/registro.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RegistrarseComponent } from './registrarse/registrarse.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     LoginComponent,
     NoEncontradoComponent,
-    RegistroComponent
+    RegistrarseComponent,
   ],
   imports: [
     BrowserModule,
