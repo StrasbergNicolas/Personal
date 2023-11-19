@@ -17,6 +17,8 @@ export class AuthService {
   //si el usuario que intenta ingresar tiene cualquier rol, podrá ver el componente de agregar editar
   //sino no podrá hacerlo.
   //actualmente lo que setá haciendo el programa es ver todos los usuarios sin buscar uno en específico
+
+  /*
   getAuthToken(): Observable<boolean>{
     this._usuarioService.getUsuarios().subscribe({
       next: data => {
@@ -29,5 +31,5 @@ export class AuthService {
 
     return of(true)
   }
-
+*/
 }

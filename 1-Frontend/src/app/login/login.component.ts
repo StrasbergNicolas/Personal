@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent {
   listUsuarios: Usuario[] = [];
   usuarioForm: FormGroup
 
@@ -24,10 +24,11 @@ export class LoginComponent implements OnInit{
     rol:['',Validators.required]
   })
 }
-  ngOnInit(): void {
-    this.obtenerUsuarios();
-  }
 
+  ngOnInit(): void {
+   this.obtenerUsuarios();
+  }
+  
   obtenerUsuarios(){
     this._usuarioService.getUsuarios().subscribe({
       next: data => {
@@ -39,13 +40,10 @@ export class LoginComponent implements OnInit{
     })
   }
 
-  logIn(){
-    const USUARIO: Usuario = {
-      mail: this.usuarioForm.get('mail')?.value,
-      password: this.usuarioForm.get('password')?.value,
-      rol: this.usuarioForm.get('rol')?.value
-    }
-    this._usuarioService.getUsuario(USUARIO).subscribe({
+    logIn(){
+    const mail = this.usuarioForm.get('mail')?.value
+    const password = this.usuarioForm.get('password')?.value
+    this._usuarioService.getUsuario(mail, password).subscribe({
       next:data =>{
         console.log("usuario encontrado", data)
       }, error: err => {

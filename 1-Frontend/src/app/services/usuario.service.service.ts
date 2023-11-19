@@ -10,12 +10,13 @@ export class UsuarioServiceService {
   url = "http://localhost:3000/api/usuarios/"
   constructor(private http: HttpClient) { }
 
+  
   getUsuarios() : Observable<any> {
     return this.http.get(this.url)
   }
-
-  getUsuario(usuario: Usuario) : Observable<any>{
-    return this.http.get(this.url + Usuario)
+  
+  getUsuario(password:string, mail: string) : Observable<any>{
+    return this.http.get(this.url + mail + password)
   }
 
 }
