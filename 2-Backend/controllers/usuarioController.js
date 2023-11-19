@@ -23,36 +23,33 @@ exports.obtenerUsuarios = async (req,res) => {
     }
 }
 
-/* esto funciona pero si o si es por parámetro que se lo debe pasar
-exports.obtenerUsuario = async (req, res) => {
-    try{
-        let usuario = await Usuario.findOne({mail: req.params.mail}, '-password')
-        if(!usuario){
-            return res.status(500).send("Usuario no encontrado")
-        }
-        res.json(usuario)
-    } catch(error){
-        console.log(error)
-        res.status(500).send("Hubo un error...")
-    }
-}
-*/
 
 exports.obtenerUsuario = async (req, res) => {
     try {
-        const {mail, password} = req.body
-        if (!mail || !password){
-            return res.status(400).json("No se encuentran")
-        }
-        const usuario = await Usuario.findOne({mail,password})
+        const { mail } = req.body;
+        const {password} = req.body
 
-        if(!usuario){
-            return res.status(400).json({mensaje: "Credenciales inválidas"} )
+        if (!mail) {
+            return res.status(400).json({ mensaje: "Falta Correo electrónico" });
         }
 
-        res.json({mail: usuario.mail, rol: usuario.rol})
-    } catch (error){
-        console.log(error)
-        res.status(500).json({mensaje: "Error en autenticacion"})
+        if (!password) {
+            return res.status(400).json({ mensaje: "Falta Contraseña" });
+        }
+
+        // Realizar la búsqueda del usuario por correo electrónico
+        const usuario = await Usuario.findOne({ mail, password });
+
+        if (!usuario) {
+            return res.status(404).json({ mensaje: "Usuario no encontrado" });
+        }
+
+        // Devolver los datos del usuario (excepto la contraseña) en la respuesta
+        const { contraseña, ...usuarioSinPassword } = usuario.toObject();
+
+        res.json(usuarioSinPassword);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ mensaje: "Error en la búsqueda de usuario" });
     }
 }

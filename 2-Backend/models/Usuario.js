@@ -11,7 +11,7 @@ const usuarioSchema = mongoose.Schema({
     },
     rol: {
         type: String,
-        required: true
+        required: false
     }
 }) 
 

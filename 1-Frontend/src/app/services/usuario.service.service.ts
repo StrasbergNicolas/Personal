@@ -8,15 +8,19 @@ import { Usuario } from '../models/usuario';
 })
 export class UsuarioServiceService {
   url = "http://localhost:3000/api/usuarios/"
+  urllogin = "http://localhost:3000/api/usuarios/login"
+
   constructor(private http: HttpClient) { }
 
-  
+  getUsuario(mail: string, password: string) : Observable<any>{
+    return this.http.post(this.url, mail + password)
+  }
+
   getUsuarios() : Observable<any> {
     return this.http.get(this.url)
   }
-  
-  getUsuario(password:string, mail: string) : Observable<any>{
-    return this.http.get(this.url + mail + password)
-  }
 
+  getUsuariO(credentials: { mail: string, password: string }): Observable<any> {
+    return this.http.post(this.urllogin, credentials);
+  }
 }
