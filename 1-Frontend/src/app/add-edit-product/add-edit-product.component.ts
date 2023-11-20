@@ -61,6 +61,7 @@ export class AddEditProductComponent implements OnInit{
  }
 
   esEditar(){
+    console.log(this.id)
     if(this.id !== null){
       this._productoService.getProducto(this.id).subscribe({
         next: data => {

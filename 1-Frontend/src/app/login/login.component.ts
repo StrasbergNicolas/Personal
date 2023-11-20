@@ -37,8 +37,7 @@ export class LoginComponent {
       }
     })
   }
-
-
+  
   saveToken(token: string): void {
     // Almacenar el token en el almacenamiento local
     localStorage.setItem('token', token);
@@ -67,3 +66,5 @@ export class LoginComponent {
           );
         }
       }
+
+

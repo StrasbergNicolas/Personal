@@ -1,0 +1,54 @@
+nav{
+    background: #8bc34a;
+    height: 80px;
+    width: 100%;
+    
+}
+
+.enlace{
+    position: absolute;
+    padding: 10px 0px;
+    margin-left: 2%;
+    width: 50px;
+}
+
+.logo{
+    height: 60px;
+    border-radius: 50px;
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+    
+}
+
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+
+}
+
+nav ul li a{
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 7px 15px;
+    text-transform: uppercase;
+    
+}
+
+#sesion{
+    background: #00bcd4;
+    border-radius: 50px;
+    border: #dcedc8 solid 5px;
+    
+}
+
+#sesion:hover{
+    color: #00bcd4;
+    background: #dcedc8;
+    border: #00bcd4 solid 5px;
+    transition: .5s;
+}
