@@ -11,7 +11,9 @@ import { NoEncontradoComponent } from './no-encontrado/no-encontrado.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RegistrarseComponent } from './registrarse/registrarse.component'
+import { RegistrarseComponent } from './registrarse/registrarse.component';
+import { InicioComponent } from './inicio/inicio.component'
+import { AuthService } from './core/servicio.autenticacion';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { RegistrarseComponent } from './registrarse/registrarse.component'
     LoginComponent,
     NoEncontradoComponent,
     RegistrarseComponent,
+    InicioComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,9 @@ import { RegistrarseComponent } from './registrarse/registrarse.component'
     ReactiveFormsModule
 
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

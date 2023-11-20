@@ -3,6 +3,7 @@ import { Usuario } from '../models/usuario';
 import { UsuarioServiceService } from '../services/usuario.service.service';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { resetFakeAsyncZone } from '@angular/core/testing';
 
 @Component({
   selector: 'app-login',
@@ -37,6 +38,13 @@ export class LoginComponent {
     })
   }
 
+
+  saveToken(token: string): void {
+    // Almacenar el token en el almacenamiento local
+    localStorage.setItem('token', token);
+  }
+
+  
   logIn(): void {
     const usuarios: Usuario = {
       mail: this.usuarioForm.get('mail')?.value,
@@ -45,10 +53,17 @@ export class LoginComponent {
       let user = this.usuarioForm.getRawValue()
       console.log(user)
           // Llama al servicio de usuario para realizar la autenticación
-      this._usuarioService.getUsuario(usuarios).subscribe(
-        
-      (res) => this.router.navigate(['/lista'])
-          // Aquí podrías realizar acciones adicionales después de un inicio de sesión exitoso
-      );
-    }
-  }
+          this._usuarioService.getUsuario(usuarios).subscribe(
+            (res) => {
+              // Guarda los datos en el localStorage después de un inicio de sesión exitoso
+              localStorage.setItem('usuario', JSON.stringify(usuarios));
+              this.router.navigate(['/lista']);
+              // Aquí podrías realizar acciones adicionales después de un inicio de sesión exitoso
+            },
+            (error) => {
+              // Manejo de errores, si es necesario
+              console.error('Error en el inicio de sesión', error);
+            }
+          );
+        }
+      }

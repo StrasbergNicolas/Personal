@@ -5,13 +5,16 @@ import { AddEditProductComponent } from './add-edit-product/add-edit-product.com
 import { LoginComponent } from './login/login.component';
 import { NoEncontradoComponent } from './no-encontrado/no-encontrado.component';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
-//import { authGuard } from './guards/auth.guard';
+import { InicioComponent } from './inicio/inicio.component';
+import { loginGuard } from './guards/login.guard';
 
 const routes: Routes = [
-  { path: 'lista',  component: ListProductComponent },
+  { path: 'edicion',  component: ListProductComponent,
+    canActivate: [loginGuard]},
   { path: 'añadir', component: AddEditProductComponent  },
   { path: 'añadir/:id', component: AddEditProductComponent},
   { path: 'login', component: LoginComponent },
+  { path: 'inicio', component: InicioComponent},
   { path: "registrar", component: RegistrarseComponent},
   { path: "**", component: ListProductComponent}
 ];

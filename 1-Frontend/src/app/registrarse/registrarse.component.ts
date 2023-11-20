@@ -11,27 +11,26 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class RegistrarseComponent {
   listUsuarios: Usuario[] = [];
-  usuarioForm: FormGroup
+  usuarioFormRegister: FormGroup
   constructor(private _usuarioService: UsuarioServiceService,
               private fb: FormBuilder,
               private router: Router,
               private actRouter: ActivatedRoute) {
   
-  this.usuarioForm = this.fb.group({
+  this.usuarioFormRegister = this.fb.group({
     mail:['', Validators.required],
     password:['',Validators.required]  })
 }
 
 register(): void {
   const usuarios: Usuario = {
-    mail: this.usuarioForm.get('mail')?.value,
-    password: this.usuarioForm.get('password')?.value
+    mail: this.usuarioFormRegister.get('mail')?.value,
+    password: this.usuarioFormRegister.get('password')?.value
   }
-    let user = this.usuarioForm.getRawValue()
+    let user = this.usuarioFormRegister.getRawValue()
     console.log(user)
         // Llama al servicio de usuario para realizar la autenticación
     this._usuarioService.postUsuario(usuarios).subscribe(
-      
     (res) => this.router.navigate(['/lista'])
         // Aquí podrías realizar acciones adicionales después de un inicio de sesión exitoso
     );
