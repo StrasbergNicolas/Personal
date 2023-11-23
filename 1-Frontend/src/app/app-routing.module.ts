@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { NoEncontradoComponent } from './no-encontrado/no-encontrado.component';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
 import { InicioComponent } from './inicio/inicio.component';
+
 import { loginGuard } from './guards/login.guard';
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
     canActivate: [loginGuard]},
   { path: 'añadir', component: AddEditProductComponent  },
   { path: 'añadir/:id', component: AddEditProductComponent},
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent,
+    canActivate: [loginGuard] },
   { path: 'inicio', component: InicioComponent},
   { path: "registrar", component: RegistrarseComponent},
   { path: "**", component: ListProductComponent}
