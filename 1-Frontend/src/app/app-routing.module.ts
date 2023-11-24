@@ -7,6 +7,7 @@ import { NoEncontradoComponent } from './no-encontrado/no-encontrado.component';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { loginGuard } from './guards/login.guard';
+//import { RegisterGuard } from './guards/register.guard';
 import { EdicionComponent } from './edicion/edicion.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
 

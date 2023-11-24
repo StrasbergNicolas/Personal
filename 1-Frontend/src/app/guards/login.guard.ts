@@ -17,6 +17,7 @@ export const loginGuard = () => {
     }
 };
 
+
 //Posible verificación de token
 /*
   if (localStorage.getItem('usuario')){

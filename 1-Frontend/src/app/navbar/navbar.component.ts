@@ -33,6 +33,14 @@ ngOnInit(): void {
   } else {
     this.mostrarboton = true;
   }
+
+  if (localStorage.getItem('usuario') === null) {
+    this.mostrarbotones = true; //si está vacio lo muestra
+  } else {
+    this.mostrarbotones = false;
+  }
+
+
 }
 
 search(): void {
@@ -51,14 +59,16 @@ search(): void {
     logout(): void {
       localStorage.removeItem('usuario')
       this.mostrarboton = !this.mostrarboton
+      location. reload()
     }
 
     botoneras(){
-      if (localStorage.getItem('usuario') === null) {
-        this.mostrarbotones = false; //si está vacio lo oculta
+      if (localStorage.getItem('usuario') != null) {
+        this.mostrarbotones = true; //si está vacio lo oculta
       } else {
-        this.mostrarbotones = true;
+        this.mostrarbotones = false;
       }
-}
+    }
+
 
 }
