@@ -62,9 +62,15 @@ export class LoginComponent {
             (error) => {
               // Manejo de errores, si es necesario
               console.error('Error en el inicio de sesión', error);
+              alert("Usuario incorrecto")
             }
           );
+          setTimeout(() => {
+            location.reload();
+          }, 150);
+
         }
+
       }
 
 

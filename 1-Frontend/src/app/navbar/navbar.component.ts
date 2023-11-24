@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductoService } from '../services/producto.service'
@@ -11,7 +11,11 @@ import { AuthService } from '../core/servicio.autenticacion';
 })
 
 
-export class NavbarComponent {
+export class NavbarComponent implements OnInit{
+
+  mostrarboton: boolean = true;
+  mostrarbotones: boolean = true;
+
   navForm: FormGroup
   constructor(private fb: FormBuilder,
               private router: Router,
@@ -21,6 +25,14 @@ export class NavbarComponent {
   this.navForm = this.fb.group({
     search: ['', Validators.required]
   })
+}
+
+ngOnInit(): void {
+  if (localStorage.getItem('usuario') === null) {
+    this.mostrarboton = false; //si está vacio lo oculta
+  } else {
+    this.mostrarboton = true;
+  }
 }
 
 search(): void {
@@ -38,6 +50,15 @@ search(): void {
 
     logout(): void {
       localStorage.removeItem('usuario')
+      this.mostrarboton = !this.mostrarboton
     }
+
+    botoneras(){
+      if (localStorage.getItem('usuario') === null) {
+        this.mostrarbotones = true; //si está vacio lo oculta
+      } else {
+        this.mostrarbotones = false;
+      }
+}
 
 }

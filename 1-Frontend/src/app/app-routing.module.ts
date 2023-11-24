@@ -11,9 +11,9 @@ import { EdicionComponent } from './edicion/edicion.component';
 
 
 const routes: Routes = [
-  { path: 'lista',  component: ListProductComponent,
-    canActivate: [loginGuard]},
-  {  path: 'edicion', component: EdicionComponent},
+  { path: 'lista',  component: ListProductComponent},
+  {  path: 'edicion', component: EdicionComponent,
+  canActivate: [loginGuard]},
   { path: 'añadir', component: AddEditProductComponent  },
   { path: 'añadir/:id', component: AddEditProductComponent},
   { path: 'login', component: LoginComponent},
