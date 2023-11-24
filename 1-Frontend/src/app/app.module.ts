@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
 import { InicioComponent } from './inicio/inicio.component'
 import { AuthService } from './core/servicio.autenticacion';
+import { EdicionComponent } from './edicion/edicion.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AuthService } from './core/servicio.autenticacion';
     NoEncontradoComponent,
     RegistrarseComponent,
     InicioComponent,
+    EdicionComponent,
   ],
   imports: [
     BrowserModule,

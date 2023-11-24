@@ -1,0 +1,22 @@
+
+<table class="table table-hover">
+    <button routerLink="/añadir" type="button" class="btn btn-primary btn-sm">Añadir</button>
+  
+    <tr >
+      <th scope="col">Nombre</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Stock</th>
+    </tr>
+    
+    <tr *ngFor="let data of listProducts" class="table-active">
+      <th scope="row"> {{data.name}} </th>
+      <td>{{data.description}}</td> 
+      <td>{{data.stock}}</td> 
+      <td>{{data.price}}</td>
+      <button type="button" routerLink="/añadir/{{data._id}}" class="btn btn-outline-light btn-sm">Editar</button>
+      <button (click)="eliminarProducto(data._id)" style="margin-left: 18px;" type="button" class="btn btn-primary btn-sm" >Eliminar</button>  </tr>
+    </table>
+  
+  
+  

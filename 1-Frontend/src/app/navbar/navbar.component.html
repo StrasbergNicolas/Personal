@@ -17,11 +17,16 @@
 
           <li class="nav-item">
             <a class="nav-link" href="#">Iniciar sesion</a>
-          </li>         
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="#" (click)="logout()">Cerrar Sesión</a>
+          </li>
+          
         </ul>
         <form [formGroup]="navForm" (ngSubmit)="search()"  class="d-flex">
           <input class="form-control me-sm-2" type="text"  formControlName="search"  type="search" placeholder="Search"> 
-          <button class="btn btn-secondary my-2 my-sm-0" (click)="search()">Search</button>
+          <button class="btn btn-secondary my-2 my-sm-0">Search</button>
         </form>
       </div>
     </div>

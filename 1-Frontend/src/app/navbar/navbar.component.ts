@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductoService } from '../services/producto.service'
+import { AuthService } from '../core/servicio.autenticacion';
 
 @Component({
   selector: 'app-encabezado',
@@ -11,7 +12,6 @@ import { ProductoService } from '../services/producto.service'
 
 
 export class NavbarComponent {
-
   navForm: FormGroup
   constructor(private fb: FormBuilder,
               private router: Router,
@@ -34,6 +34,10 @@ search(): void {
           console.error('Error en la busqueda', error);
         }
       );
+    }
+
+    logout(): void {
+      localStorage.removeItem('usuario')
     }
 
 }

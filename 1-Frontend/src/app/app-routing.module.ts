@@ -7,10 +7,13 @@ import { NoEncontradoComponent } from './no-encontrado/no-encontrado.component';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { loginGuard } from './guards/login.guard';
+import { EdicionComponent } from './edicion/edicion.component';
+
 
 const routes: Routes = [
-  { path: 'edicion',  component: ListProductComponent,
+  { path: 'lista',  component: ListProductComponent,
     canActivate: [loginGuard]},
+  {  path: 'edicion', component: EdicionComponent},
   { path: 'añadir', component: AddEditProductComponent  },
   { path: 'añadir/:id', component: AddEditProductComponent},
   { path: 'login', component: LoginComponent},
