@@ -7,10 +7,10 @@
       <div class="collapse navbar-collapse" id="navbarColor03">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/login">Iniciar sesion</a>
+            <a class="nav-link" *ngIf="mostrarbotones" href="/login">Iniciar sesion</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/registrar">Registro</a>
+            <a class="nav-link" *ngIf="mostrarbotones" href="/registrar">Registro</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/edicion">Edicion</a>
