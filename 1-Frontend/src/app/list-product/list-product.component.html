@@ -12,8 +12,8 @@
   <tr *ngFor="let data of listProducts" class="table-active">
     <th scope="row"> {{data.name}} </th>
     <td>{{data.description}}</td> 
-    <td>{{data.stock}}</td> 
-    <td>{{data.price}}</td>
+    <td>{{data.price | currency:'USD'}}</td>
+    <td>{{data.stock}}</td>
   </table>
 
 
