@@ -9,7 +9,6 @@ export const loginGuard = () => {
     const router = inject(Router)
 
     if (localStorage.getItem('usuario')){
-        router.navigate(['/lista'])
         return true
     } else {
         alert('Necesita iniciar sesión')
