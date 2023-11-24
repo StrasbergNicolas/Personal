@@ -15,6 +15,7 @@ import { RegistrarseComponent } from './registrarse/registrarse.component';
 import { InicioComponent } from './inicio/inicio.component'
 import { AuthService } from './core/servicio.autenticacion';
 import { EdicionComponent } from './edicion/edicion.component';
+import { NosotrosComponent } from './nosotros/nosotros.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { EdicionComponent } from './edicion/edicion.component';
     RegistrarseComponent,
     InicioComponent,
     EdicionComponent,
+    NosotrosComponent,
   ],
   imports: [
     BrowserModule,

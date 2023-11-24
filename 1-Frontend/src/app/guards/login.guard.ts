@@ -16,3 +16,15 @@ export const loginGuard = () => {
         return false
     }
 };
+
+//Posible verificación de token
+/*
+  if (localStorage.getItem('usuario')){
+        this._usuarioService.getUsuario(variableusuario).subscribe(
+            (res) => {
+                return true
+            }, (error) => {
+                return false
+            }
+                  )          }
+*/

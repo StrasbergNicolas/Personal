@@ -55,9 +55,9 @@ search(): void {
 
     botoneras(){
       if (localStorage.getItem('usuario') === null) {
-        this.mostrarbotones = true; //si está vacio lo oculta
+        this.mostrarbotones = false; //si está vacio lo oculta
       } else {
-        this.mostrarbotones = false;
+        this.mostrarbotones = true;
       }
 }
 

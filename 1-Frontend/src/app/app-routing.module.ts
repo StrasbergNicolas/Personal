@@ -8,18 +8,19 @@ import { RegistrarseComponent } from './registrarse/registrarse.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { loginGuard } from './guards/login.guard';
 import { EdicionComponent } from './edicion/edicion.component';
-
+import { NosotrosComponent } from './nosotros/nosotros.component';
 
 const routes: Routes = [
   { path: 'lista',  component: ListProductComponent},
-  {  path: 'edicion', component: EdicionComponent,
-  canActivate: [loginGuard]},
+  { path: 'edicion', component: EdicionComponent,
+    canActivate: [loginGuard]},
+  { path: 'nosotros', component: NosotrosComponent},
   { path: 'añadir', component: AddEditProductComponent  },
   { path: 'añadir/:id', component: AddEditProductComponent},
   { path: 'login', component: LoginComponent},
   { path: 'inicio', component: InicioComponent},
   { path: "registrar", component: RegistrarseComponent},
-  { path: "**", component: ListProductComponent}
+  { path: "**", component: ListProductComponent},
 ];
 
 @NgModule({
