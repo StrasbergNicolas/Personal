@@ -20,8 +20,8 @@
           </li>
         </ul>
         <form  [formGroup]="navForm" (ngSubmit)="search()"  class="d-flex">
-          <input class="form-control me-sm-2" type="text"  formControlName="search"  type="search" placeholder="Search"> 
-          <button class="btn btn-secondary my-2 my-sm-0">Search</button>
+          <input class="form-control me-sm-2" type="text"  formControlName="search"  type="search" placeholder="Buscador"> 
+          <button class="btn btn-secondary my-2 my-sm-0">Buscar</button>
           <button *ngIf="mostrarboton" class="nav-link" href="#" (click)="logout()">Cerrar Sesión</button>
         </form>
       </div>
