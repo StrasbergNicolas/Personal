@@ -27,8 +27,9 @@ POST http://localhost:3000/api/usuarios
 Content-Type: application/json
 
 {
-    "mail": "asd@gmail.com",
-    "password": "asd"}
+    "mail": "nico@pwc.com",
+    "password": "asd",
+    "rol": "asd"}
 
 ###
 
@@ -40,6 +41,5 @@ POST http://localhost:3000/api/usuarios/login
 Content-Type: application/json
 
 {
-    "mail": "mail@gmail.com",
-    "password": "asdasd"
-}
+     "mail": "nico@pwc.com",
+    "password": "asd"    }

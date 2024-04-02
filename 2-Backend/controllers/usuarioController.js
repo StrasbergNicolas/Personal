@@ -27,7 +27,8 @@ exports.obtenerUsuarios = async (req,res) => {
 exports.obtenerUsuario = async (req, res) => {
     try {
         const { mail } = req.body;
-        const {password} = req.body
+        const {password} = req.body;
+        const {rol} = req.body;
 
         if (!mail) {
             return res.status(400).json({ mensaje: "Falta Correo electrónico" });

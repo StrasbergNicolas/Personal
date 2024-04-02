@@ -19,6 +19,10 @@ export class UsuarioServiceService {
     return this.http.get(this.url)
   }
 
+  getUsuarioRol(credentials: { mail: string, password: string, rol:string }): Observable<any> {
+    return this.http.post(this.urllogin, credentials);
+  }
+
   getUsuario(credentials: { mail: string, password: string }): Observable<any> {
     return this.http.post(this.urllogin, credentials);
   }
