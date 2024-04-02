@@ -19,19 +19,21 @@ export class RegistrarseComponent {
   
   this.usuarioFormRegister = this.fb.group({
     mail:['', Validators.required],
-    password:['',Validators.required]  })
+    password:['',Validators.required],
+    rol:['',Validators.required],  })
 }
 
 register(): void {
   const usuarios: Usuario = {
     mail: this.usuarioFormRegister.get('mail')?.value,
-    password: this.usuarioFormRegister.get('password')?.value
+    password: this.usuarioFormRegister.get('password')?.value,
+    rol: this.usuarioFormRegister.get('rol')?.value
   }
     let user = this.usuarioFormRegister.getRawValue()
     console.log(user)
         // Llama al servicio de usuario para realizar la autenticación
     this._usuarioService.postUsuario(usuarios).subscribe(
-    (res) => this.router.navigate(['/lista'])
+    (res) => this.router.navigate(['/login'])
         // Aquí podrías realizar acciones adicionales después de un inicio de sesión exitoso
     );
   }

@@ -13,7 +13,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/api/productos
+GET http://localhost:3000/api/usuarios
 
 ###
 
@@ -27,10 +27,8 @@ POST http://localhost:3000/api/usuarios
 Content-Type: application/json
 
 {
-    "mail": "nico@hotmail.com",
-    "password": "",
-    "rol": "costilla"
-}
+    "mail": "asd@gmail.com",
+    "password": "asd"}
 
 ###
 

@@ -16,6 +16,7 @@ import { InicioComponent } from './inicio/inicio.component'
 import { AuthService } from './core/servicio.autenticacion';
 import { EdicionComponent } from './edicion/edicion.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NosotrosComponent } from './nosotros/nosotros.component';
     InicioComponent,
     EdicionComponent,
     NosotrosComponent,
+    UsuariosComponent,
   ],
   imports: [
     BrowserModule,

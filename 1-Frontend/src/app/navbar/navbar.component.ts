@@ -59,7 +59,9 @@ search(): void {
     logout(): void {
       localStorage.removeItem('usuario')
       this.mostrarboton = !this.mostrarboton
+      this.router.navigate(['/lista']);
       location. reload()
+
     }
 
     botoneras(){

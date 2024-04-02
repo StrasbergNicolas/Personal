@@ -49,13 +49,12 @@ export class LoginComponent {
       mail: this.usuarioForm.get('mail')?.value,
       password: this.usuarioForm.get('password')?.value
     }
-      let user = this.usuarioForm.getRawValue()
-      console.log(user)
+ 
           // Llama al servicio de usuario para realizar la autenticación
           this._usuarioService.getUsuario(usuarios).subscribe(
             (res) => {
               // Guarda los datos en el localStorage después de un inicio de sesión exitoso
-              localStorage.setItem('usuario', JSON.stringify(usuarios));
+              localStorage.setItem('usuario', JSON.stringify(usuarios ));
               this.router.navigate(['/lista']);
               // Aquí podrías realizar acciones adicionales después de un inicio de sesión exitoso
             },
@@ -67,7 +66,7 @@ export class LoginComponent {
           );
           setTimeout(() => {
             location.reload();
-          }, 150);
+          }, 300);
 
         }
 

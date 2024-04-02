@@ -10,6 +10,7 @@ import { loginGuard } from './guards/login.guard';
 //import { RegisterGuard } from './guards/register.guard';
 import { EdicionComponent } from './edicion/edicion.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 const routes: Routes = [
   { path: 'lista',  component: ListProductComponent},
@@ -20,8 +21,10 @@ const routes: Routes = [
   { path: 'añadir/:id', component: AddEditProductComponent},
   { path: 'login', component: LoginComponent},
   { path: 'inicio', component: InicioComponent},
+  { path: 'usuarios', component: UsuariosComponent,
+    canActivate: [loginGuard]},
   { path: "registrar", component: RegistrarseComponent},
-  { path: "**", component: ListProductComponent},
+  { path: "**", component: ListProductComponent},   
 ];
 
 @NgModule({
